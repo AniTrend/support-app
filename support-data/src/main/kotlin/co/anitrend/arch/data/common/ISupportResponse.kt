@@ -17,7 +17,6 @@
 package co.anitrend.arch.data.common
 
 import co.anitrend.arch.data.request.callback.RequestCallback
-import co.anitrend.arch.domain.entities.NetworkState
 
 /**
  * Contract mapper for wrapping future requests

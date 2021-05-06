@@ -97,7 +97,7 @@ class SupportConnectivity(
              */
             override fun onAvailable(network: Network) {
                 super.onAvailable(network)
-                offer(ConnectivityState.Connected)
+                trySend(ConnectivityState.Connected)
             }
 
             /**
@@ -123,7 +123,7 @@ class SupportConnectivity(
              * @param network The [Network] lost.
              */
             override fun onLost(network: Network) {
-                offer(ConnectivityState.Disconnected)
+                trySend(ConnectivityState.Disconnected)
             }
 
             /**
@@ -135,7 +135,7 @@ class SupportConnectivity(
              * [.unregisterNetworkCallback] had been called.
              */
             override fun onUnavailable() {
-                offer(ConnectivityState.Unknown)
+                trySend(ConnectivityState.Unknown)
             }
         }
 

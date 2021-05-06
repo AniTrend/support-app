@@ -28,7 +28,7 @@ import co.anitrend.arch.extension.preference.NullableStringPreference
 import co.anitrend.arch.extension.preference.StringPreference
 import co.anitrend.arch.extension.settings.contract.AbstractSetting
 import kotlinx.coroutines.channels.awaitClose
-import kotlinx.coroutines.channels.sendBlocking
+import kotlinx.coroutines.channels.trySendBlocking
 import kotlinx.coroutines.flow.callbackFlow
 
 private typealias SettingsListener = SharedPreferences.OnSharedPreferenceChangeListener
@@ -52,7 +52,7 @@ class EnumSetting<T : Enum<*>>(
         callbackFlow {
             val listener = SettingsListener { _, id ->
                 if (id == identifier)
-                    sendBlocking(value)
+                    trySendBlocking(value)
             }
             preference.registerOnSharedPreferenceChangeListener(listener)
             awaitClose { preference.unregisterOnSharedPreferenceChangeListener(listener) }
@@ -79,7 +79,7 @@ class BooleanSetting(
         callbackFlow {
             val listener = SettingsListener { _, id ->
                 if (id == identifier)
-                    sendBlocking(value)
+                    trySendBlocking(value)
             }
             preference.registerOnSharedPreferenceChangeListener(listener)
             awaitClose { preference.unregisterOnSharedPreferenceChangeListener(listener) }
@@ -106,7 +106,7 @@ class IntSetting(
         callbackFlow {
             val listener = SettingsListener { _, id ->
                 if (id == identifier)
-                    sendBlocking(value)
+                    trySendBlocking(value)
             }
             preference.registerOnSharedPreferenceChangeListener(listener)
             awaitClose { preference.unregisterOnSharedPreferenceChangeListener(listener) }
@@ -133,7 +133,7 @@ class FloatSetting(
         callbackFlow {
             val listener = SettingsListener { _, id ->
                 if (id == identifier)
-                    sendBlocking(value)
+                    trySendBlocking(value)
             }
             preference.registerOnSharedPreferenceChangeListener(listener)
             awaitClose { preference.unregisterOnSharedPreferenceChangeListener(listener) }
@@ -160,7 +160,7 @@ class LongSetting(
         callbackFlow {
             val listener = SettingsListener { _, id ->
                 if (id == identifier)
-                    sendBlocking(value)
+                    trySendBlocking(value)
             }
             preference.registerOnSharedPreferenceChangeListener(listener)
             awaitClose { preference.unregisterOnSharedPreferenceChangeListener(listener) }
@@ -187,7 +187,7 @@ class StringSetting(
         callbackFlow {
             val listener = SettingsListener { _, id ->
                 if (id == identifier)
-                    sendBlocking(value)
+                    trySendBlocking(value)
             }
             preference.registerOnSharedPreferenceChangeListener(listener)
             awaitClose { preference.unregisterOnSharedPreferenceChangeListener(listener) }
@@ -214,7 +214,7 @@ class NullableStringSetting(
         callbackFlow {
             val listener = SettingsListener { _, id ->
                 if (id == identifier)
-                    sendBlocking(value)
+                    trySendBlocking(value)
             }
             preference.registerOnSharedPreferenceChangeListener(listener)
             awaitClose { preference.unregisterOnSharedPreferenceChangeListener(listener) }
