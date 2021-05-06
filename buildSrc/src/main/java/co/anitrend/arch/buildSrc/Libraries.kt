@@ -51,9 +51,13 @@ object Libraries {
         }
 
         object Recycler {
-            private const val version = "1.2.0-rc01"
+            private const val version = "1.2.0"
             const val recyclerView = "androidx.recyclerview:recyclerview:$version"
-            const val recyclerViewSelection = "androidx.recyclerview:recyclerview-selection:$version"
+
+            object Selection {
+                private const val version = "1.1.0-rc03"
+                const val selection = "androidx.recyclerview:recyclerview-selection:$version"
+            }
         }
 
         object StartUp {
@@ -96,7 +100,7 @@ object Libraries {
     }
 
     object Google {
-        private const val version = "1.4.0-alpha01"
+        private const val version = "1.4.0-alpha02"
         const val material = "com.google.android.material:material:$version"
     }
 
@@ -107,7 +111,7 @@ object Libraries {
         }
 
         object Kotlin {
-            private const val version = "1.4.32"
+            private const val version = "1.5.0"
             const val stdlib = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$version"
             const val reflect = "org.jetbrains.kotlin:kotlin-reflect:$version"
 
@@ -122,7 +126,7 @@ object Libraries {
 
         object KotlinX {
             object Coroutines {
-                private const val version = "1.4.3"
+                private const val version = "1.5.0-RC"
                 const val core = "org.jetbrains.kotlinx:kotlinx-coroutines-core:$version"
                 const val android = "org.jetbrains.kotlinx:kotlinx-coroutines-android:$version"
                 const val test = "org.jetbrains.kotlinx:kotlinx-coroutines-test:$version"
